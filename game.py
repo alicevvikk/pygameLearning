@@ -19,10 +19,10 @@ class DIR:
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.stand = pygame.image.load('player_stand.png').convert_alpha()
-        self.walk1 = pygame.image.load('player_walk_1.png').convert_alpha()
-        self.walk2 = pygame.image.load('player_walk_2.png').convert_alpha()
-        self.jump_ = pygame.image.load('jump.png').convert_alpha()
+        self.stand = pygame.image.load('imgs/player_stand.png').convert_alpha()
+        self.walk1 = pygame.image.load('imgs/player_walk_1.png').convert_alpha()
+        self.walk2 = pygame.image.load('imgs/player_walk_2.png').convert_alpha()
+        self.jump_ = pygame.image.load('imgs/jump.png').convert_alpha()
         self.movements = [self.stand, self.walk1, self.walk2, self.jump_]
         self.image = self.stand
         self.vel = 3
@@ -82,8 +82,8 @@ class Enemy(pygame.sprite.Sprite):
 class Fly(Enemy):
     def __init__(self):
         super().__init__()
-        self.enemy1 = pygame.image.load('fly1.png').convert_alpha()
-        self.enemy2 = pygame.image.load('fly2.png').convert_alpha()
+        self.enemy1 = pygame.image.load('imgs/fly1.png').convert_alpha()
+        self.enemy2 = pygame.image.load('imgs/fly2.png').convert_alpha()
         self.enemies = [self.enemy1, self.enemy2]
         self.image = self.enemy1 
         self.rect =self.image.get_rect(midbottom = (1000, 200))
@@ -92,7 +92,7 @@ class Fly(Enemy):
 class Snail(Enemy):
     def __init__(self):
         super().__init__()
-        self.enemy1 = pygame.image.load('snail1.png').convert_alpha()
+        self.enemy1 = pygame.image.load('imgs/snail1.png').convert_alpha()
         self.image = self.enemy1 
         self.rect =self.image.get_rect(midbottom = (1000, 300))
 
@@ -126,8 +126,8 @@ class Game:
         self.screen = pygame.display.set_mode(self.size)
         
         self.bgs = pygame.sprite.Group()
-        self.bgs.add(Background(path="ground.png", x=0, y=300), Background(path="ground.png", x=791,y=300),
-                    Background(path="Sky.png"), Background(path="Sky.png", x=800, y=0))
+        self.bgs.add(Background(path="imgs/ground.png", x=0, y=300), Background(path="imgs/ground.png", x=791,y=300),
+                    Background(path="imgs/Sky.png"), Background(path="imgs/Sky.png", x=800, y=0))
 
         self.player = pygame.sprite.GroupSingle()
         self.player.add(Player())
